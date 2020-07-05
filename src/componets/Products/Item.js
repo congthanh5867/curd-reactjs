@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 
-const divStyle = {
-    margin: '10px',
-    // border: '5px solid pink'
-};
 
 export default class Item extends Component {
 

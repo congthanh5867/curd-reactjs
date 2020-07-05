@@ -10,7 +10,7 @@ export default class BaseApi {
         var path = urljoin(args);
         return urljoin(this.baseUrl, path);
     };
-    call = async (url, method, model, noAuth) => {
+    call = async(url, method, model, noAuth) => {
         var access_token = undefined;
         try {
             var strToken = localStorage.getItem("token");
@@ -51,19 +51,19 @@ export default class BaseApi {
             throw e;
         }
     };
-    get = async (url) => {
+    get = async(url) => {
         return await this.call(url, "GET");
     };
-    post = async (url, model) => {
+    post = async(url, model) => {
         return await this.call(url, "POST", model);
     };
-    postWithoutToken = async (url, model) => {
+    postWithoutToken = async(url, model) => {
         return await this.call(url, "POST", model, true);
     };
-    put = async (url, model) => {
+    put = async(url, model) => {
         return await this.call(url, "PUT", model);
     };
-    delete = async (url, model) => {
+    delete = async(url, model) => {
         //console.log(ids);
         return await this.call(url, "DELETE", model);
     };

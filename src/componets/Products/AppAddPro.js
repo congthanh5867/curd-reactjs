@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 export default class AppAddPro extends Component {
     isInputChange = (event) => {
         const target = event.target;
@@ -14,13 +14,15 @@ export default class AppAddPro extends Component {
     submitForm = (e) => {
         e.preventDefault();
         e.target.reset();
-        const { inputName, inputPass, stlLevel } = this.state;
+        const { proName, unit_price, promotion_price, category_id, description, ProductImage } = this.state;
 
         const item = {};
-        item.id = uuidv4();
-        item.username = inputName;
-        item.password = inputPass;
-        item.level = parseInt(stlLevel);
+        item.proName = proName;
+        item.description = description;
+        item.category_id = parseInt(category_id);
+        item.unit_price = unit_price;
+        item.promotion_price = promotion_price;
+        item.ProductImage = ProductImage;
 
         // console.log(item);
         this.props.add(item);
@@ -31,22 +33,34 @@ export default class AppAddPro extends Component {
                 <h3 style={{ textAlign: "center", backgroundColor: "#afafbd" }} > Them </h3>
                 <form onSubmit={(e) => this.submitForm(e)} >
                     <div className="form-group" >
-                        <label htmlFor="inputName" > Name </label>
-                        <input type="text" className="form-control" id="inputName" name="inputName" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                        <label htmlFor="proName" > Name </label>
+                        <input type="text" className="form-control" id="proName" name="proName" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
                     </div>
                     <div className="form-group" >
                         <label htmlFor="unit_price" > Uni_price </label>
-                        <input type="text" className="form-control" id="unit_price" name="unit_price" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                        <input type="number" className="form-control" id="unit_price" name="unit_price" placeholder="1000000" onChange={(event) => this.isInputChange(event)} />
                     </div>
                     <div className="form-group" >
                         <label htmlFor="promotion_price" > Promotion_price </label>
-                        <input type="text" className="form-control" id="inputName" name="promotion_price" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                        <input type="number" className="form-control" id="promotion_price" name="promotion_price" placeholder="10000" onChange={(event) => this.isInputChange(event)} />
                     </div>
                     <div className="form-group" >
-                        <label htmlFor="inputName" > Name </label>
-                        <input type="text" className="form-control" id="inputName" name="inputName" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                        <label htmlFor="category_id" > Category_id </label>
+                        <input type="number" className="form-control" id="category_id" name="category_id" placeholder="10000" onChange={(event) => this.isInputChange(event)} />
                     </div>
-                    <button type="submit" className="btn btn-primary" > Add </button>
+                    <div className="form-group" >
+                        <label htmlFor="description" > Description </label>
+                        <input type="text" className="form-control" id="description" name="description" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                    </div>
+                    <div className="form-group" >
+                        <label htmlFor="ProductImage" > ProductImage </label>
+                        <input type="text" className="form-control" id="ProductImage" name="ProductImage" placeholder="Name" onChange={(event) => this.isInputChange(event)} />
+                    </div>
+                    {/* ProductImage */}
+                    <div className="row">
+                        <button type="submit" className="btn btn-primary" > Add </button>
+                        <button onClick={(e) => this.props.formToogle(e)} className="btn btn-primary" style={{ marginLeft: 10 }} > Cancel </button>
+                    </div>
                 </form>
             </div>
         )

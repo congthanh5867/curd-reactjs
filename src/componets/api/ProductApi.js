@@ -2,7 +2,7 @@ import BaseApi from './BaseApi';
 
 export default class ProductsApi extends BaseApi {
 
-    list = async () => {
+    list = async() => {
         try {
             let urlBase = this.makeUrl('v1', 'products');
             let result = await this.get(urlBase);
@@ -13,11 +13,23 @@ export default class ProductsApi extends BaseApi {
     }
 
 
-    getById = async (productsId) => {
+    getById = async(productsId) => {
         try {
             let urlBase = this.makeUrl('v1', 'products', '/' + productsId);
             // console.log(urlBase);
             let result = await this.get(urlBase);
+            // console.log(result);
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    add = async(productsModel) => {
+        try {
+            let urlBase = this.makeUrl('v1', 'products');
+            // console.log(urlBase);
+            let result = await this.post(urlBase, productsModel);
             // console.log(result);
             return result;
         } catch (error) {

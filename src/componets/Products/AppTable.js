@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import AppAddPro from './AppAddPro';
 import Item from './Item'
 export default class AppTable extends Component {
 
 
     mappingData = () => {
         const result = this.props.list.map((item, key) => {
-            return <Item index={key} id={item.id} data={item}>{item.proName}</Item>
+            return <Item key={key} index={key} id={item.id} data={item}>{item.proName}</Item>
         });
 
         return result;
