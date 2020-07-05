@@ -20,8 +20,8 @@ export default class AppAddPro extends Component {
         item.proName = proName;
         item.description = description;
         item.category_id = parseInt(category_id);
-        item.unit_price = unit_price;
-        item.promotion_price = promotion_price;
+        item.unit_price = parseInt(unit_price);
+        item.promotion_price = parseInt(promotion_price);
         item.ProductImage = ProductImage;
 
         // console.log(item);

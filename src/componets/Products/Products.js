@@ -38,44 +38,9 @@ export default class Products extends Component {
         })
     }
 
-    // onSave = () => {
-
-    //     let now = new Date();
-    //     let cityModel = {
-    //         AddedDate: now.toUTCString(),
-    //         Title: this.titleInput.value,
-    //         DisplayOrder: this.orderInput.value,
-    //         Description: this.descriptionInput.value,
-    //         IsActive: this.state.cityModel.isActive
-    //     };
-
-    //     if (!cityModel.Title || !cityModel.DisplayOrder || !cityModel.Description) {
-    //         this.setState({
-    //             isShowBanner: true,
-    //             bannerContent: "Bạn nhập chưa đủ thông tin",
-    //             isSaveSuccess: false,
-    //             cityModel: cityModel
-    //         });
-    //     } else {
-    //         this.props.onSave(cityModel);
-    //     }
-    // }
-
-
-
-    // onSave = async (cityModel) => {
-    //     console.log(cityModel, 'onSave');
-
-    //     let response = await this.productApi.add(cityModel);
-
-    //     if (response.result) {
-    //         window.alert.success("Thêm thành công!");
-    //     }
-    // }
-
     addProducts = async (item) => {
 
-        console.log(item);
+        // console.log(item);
 
         let response = await this.productApi.add(item);
         if (response) {
